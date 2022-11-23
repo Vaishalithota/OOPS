@@ -1,0 +1,128 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	ArrayList<Student>list=new ArrayList<>();
+	Student s1=new Student(1,"Geetha",50,28,23,45,45,45,45,67);
+	Student s2=new Student(2,"Seetha",70,45,45,23,67,65,77,89);
+	Student s3=new Student(3,"Laxman",90,78,67,43,24,67,43,56);
+	
+	list.add(s1);
+	list.add(s2);
+	list.add(s3);
+	int n;
+	System.out.println("Enter your choice");
+	System.out.println("1: Display Details of all Students");
+	System.out.println("2: Display Details of one student");
+	System.out.println("3: Add details of a student");
+	System.out.println("4: Delete details of a student");
+	System.out.println("5: Modify details of a student");
+	System.out.println("6: Exit");
+    	
+
+	do{
+	n=sc.nextInt();
+	switch(n){
+	case 1: Iterator itr=list.iterator();  
+              while(itr.hasNext()){  
+              Student st=(Student)itr.next();  
+              System.out.println(st.id+" "+st.name+" "+st.marks+" "+st.c+" "+st.cpp+" "+st.java+" "+st.python+" "+st.eng+" "+st.math+" "+st.phy);  }
+              System.out.println();	           
+	        break;
+	case 2: System.out.println("Enter the index value");
+              int i=sc.nextInt();
+              if(i==1){
+              s1.display();
+              System.out.println();
+              }else if(i==2){
+              s2.display();
+              System.out.println();
+              }else if(i==3){
+              s3.display();
+              System.out.println();
+              }else{
+              System.out.println("Not found");
+              }
+	        break;
+	
+	case 3: Student s4=new Student(4,"ram",88,67,45,33,88,66,77,88);
+	        list.add(s4);
+	        
+	        for(Student s:list){
+	    s.display();
+	        }
+	        System.out.println();
+	        break;
+	   
+	case 4: int x=sc.nextInt();
+	        list.remove(x);
+	        for(Student s:list){
+	         s.display();}
+	        System.out.println();
+	        break;
+	case 5: int z=sc.nextInt();
+	        int id2=sc.nextInt();
+	        sc.nextLine();
+	        String name2=sc.nextLine();
+	        int marks2=sc.nextInt();
+	        int c2=sc.nextInt();
+	        int cpp2=sc.nextInt();
+	        int java2=sc.nextInt();
+	        int python2=sc.nextInt();
+	        int eng2=sc.nextInt();
+	        int math2=sc.nextInt();
+	        int phy2=sc.nextInt();
+	        Student s5=new Student(id2,name2,marks2,c2,cpp2,java2,python2,eng2,math2,phy2);
+	        list.set(z,s5);
+	        for(Student s:list){
+	         s.display();
+          	  }
+          	  System.out.println();
+          	  break;
+	default:System.out.println("Enter correct choice");
+	}}while(n!=6);
+	
+}}
+	
+	class Student{
+	    int id;
+	    String name;
+	    int marks;
+	    int c;
+	    int cpp;
+	    int java;
+	    int python;
+	    int eng;
+	    int math;
+	    int phy;
+
+	    public Student(int id,String name,int marks,int c,int cpp,int java,int python,int eng,
+	    int math,int phy){
+	      this.id=id;
+	      this.name=name;
+	      this.marks=marks;
+	      this.c=c;
+	      this.cpp=cpp;
+	      this.java=java;
+	      this.python=python;
+	      this.eng=eng;
+	      this.math=math;
+	      this.phy=phy;
+	  
+	}
+	void display(){
+	       
+	    System.out.println(id);
+	    System.out.println(name);
+	    System.out.println(marks);
+	    System.out.println(c);
+	    System.out.println(cpp);
+	    System.out.println(java);
+	    System.out.println(python);
+	    System.out.println(eng);
+	    System.out.println(math);
+	    System.out.println(phy);
+	}}
+
+
